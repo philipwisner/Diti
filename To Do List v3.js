@@ -1,4 +1,7 @@
 //TO DO LIST V3
+
+//Using an object, but adding a completed section to todos array
+
 var todoList = {
     todos: [],
     displayTodos: function () {

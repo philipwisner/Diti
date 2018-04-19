@@ -1,8 +1,11 @@
-TO DO LIST V2
+//TO DO LIST V2
+
+//Change from seperate functions into an object with methods
+
 var todoList = {
     todos: ['item 1', 'item 2', 'item 3'],
     displayTodos: function () {
-        window.console.log('My ToDos:', this.todos);
+        window.console.log('My To-Dos:', this.todos);
     },
     addTodo: function (todo) {
         this.todos.push(todo);
