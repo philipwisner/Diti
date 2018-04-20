@@ -65,13 +65,11 @@ var todoList = {
 
 
 var handlers = {
-    displayTodos: function() {
-        todoList.displayTodos();
-    },
     addTodo: function() {
         var newTodo = document.getElementById('addTodoTextInput')
         todoList.addTodo(newTodo.value);
         newTodo.value = "";
+		view.displayTodos();
     },
     editTodo: function() {
         var editedTodoPosition = document.getElementById('editTodoPositionInput');
@@ -79,19 +77,23 @@ var handlers = {
         todoList.editTodo(editedTodoPosition.valueAsNumber, editedTodo.value);
         editedTodoPosition.value = '';
         editedTodo.value = '';
+		view.displayTodos();
     },
     deleteTodo: function() {
         var deleteTodoPosition = document.getElementById('deleteTodoPositionInput');
         todoList.deleteTodo(deleteTodoPosition.valueAsNumber);
         deleteTodoPosition.value = '';
+		view.displayTodos();
     },
     toggleCompleted: function() {
         var completedTodoPosition = document.getElementById('toggleTodoPositionInput');
-        todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
+ 		todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
         completedTodoPosition.value = '';
+		view.displayTodos();
     },
         toggleAll: function() {
         todoList.toggleAll();
+		view.displayTodos();
     }
 };
 
