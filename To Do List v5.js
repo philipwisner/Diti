@@ -9,7 +9,7 @@ var todoList = {
         if (this.todos.length === 0) {
             console.log('You have no todos')
         } else {            
-            for (var i=0; i < this.todos.length; i++) {
+            for (var i = 0; i < this.todos.length; i++) {
                 if (this.todos[i].completed) {
                     console.log('(x)', this.todos[i].todoText);
                 } else {
@@ -42,18 +42,18 @@ var todoList = {
         var totalTodos = this.todos.length;
         var completedTodos = 0;;
         
-        for (var i=0; i < totalTodos; i++) {
+        for (var i = 0; i < totalTodos; i++) {
             if (this.todos[i].completed) {
                 completedTodos++;
             }
         }
     
         if (completedTodos === totalTodos) {
-            for (var i=0; i < totalTodos; i++) {
+            for (var i = 0; i < totalTodos; i++) {
                 this.todos[i].completed = false;
             }
         } else {
-            for (var i=0; i < totalTodos; i++) {
+            for (var i = 0; i < totalTodos; i++) {
                 this.todos[i].completed = true;
             }
         }
@@ -67,9 +67,6 @@ var todoList = {
 var handlers = {
     displayTodos: function() {
         todoList.displayTodos();
-    },
-    toggleAll: function() {
-        todoList.toggleAll();
     },
     addTodo: function() {
         var newTodo = document.getElementById('addTodoTextInput')
@@ -92,6 +89,19 @@ var handlers = {
         var completedTodoPosition = document.getElementById('toggleTodoPositionInput');
         todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
         completedTodoPosition.value = '';
+    },
+        toggleAll: function() {
+        todoList.toggleAll();
     }
-    
-}
+};
+
+var view = {
+    displayTodos: function() {
+		var todoUL = document.getElementById('todoList');
+		todoUL.innerHTML = '';
+        for (var i = 0; i < todoList.todos.length; i++) {
+            var todoItem = document.createElement('li');
+            todoUL.appendChild(todoItem);
+        }
+    }
+};
