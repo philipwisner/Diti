@@ -28,15 +28,13 @@ var todoList = {
             }
         });
         
-        if (completedTodos === totalTodos) {
-            this.todos.forEach(function(todo) {
+        this.todos.forEach(function(todo) {
+            if (completedTodos === totalTodos) {
                 todo.completed = false;
-            });
-        } else {
-            this.todos.forEach(function(todo) {
+            } else {
                 todo.completed = true;
-            });
-        }
+            }
+        });
     }
 };
 
@@ -71,24 +69,25 @@ var handlers = {
     }
 };
 
+
 var view = {
     displayTodos: function() {
 		var todoUL = document.getElementById('todoList');
 		todoUL.innerHTML = '';
-        for (var i = 0; i < todoList.todos.length; i++) {
+        todoList.todos.forEach(function(todo, position) {
             var todoItem = document.createElement('li');
-			var todo = todoList.todos[i];
-			var todoTextWithCompletion = '';
-			if (todo.completed === true) {
-				todoTextWithCompletion = '(x) ' + todo.todoText;
-				} else {
-				todoTextWithCompletion = '( ) ' + todo.todoText;
-				}
-			todoItem.id = i;
+            var todoTextWithCompletion = '';
+            if (todo.completed === true) {
+                todoTextWithCompletion = '(x) ' + todo.todoText;
+            } else {
+                todoTextWithCompletion = '( ) ' + todo.todoText;
+            }
+			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
 			todoItem.appendChild(this.createDeleteButton());
 			todoUL.appendChild(todoItem);
-        }
+        }, this);
+    // To refactor the display todos everything stays the same but inorder to give the li items an id, we have to pass the position argument in the callback. Then the this.createDeleteButton() function does not work because 'this' is now refering to the forEach, not the view object. So we pass this as another argument in the forEach, outside the callback.
     },
 	createDeleteButton: function() {
 		var deleteButton = document.createElement('button');
