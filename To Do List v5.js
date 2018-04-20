@@ -101,14 +101,15 @@ var view = {
 		todoUL.innerHTML = '';
         for (var i = 0; i < todoList.todos.length; i++) {
             var todoItem = document.createElement('li');
-			var todoItemText = todoList.todos[i].todoText;
-			if (todoList.todos[i].completed === true) {
-				todoItem.textContent = '(x) ' + todoItemText;
-				todoUL.appendChild(todoItem);
+			var todo = todoList.todos[i];
+			var todoTextWithCompletion = '';
+			if (todo.completed === true) {
+				todoTextWithCompletion = '(x) ' + todo.todoText;
 				} else {
-				todoItem.textContent = '( ) ' + todoItemText;
-				todoUL.appendChild(todoItem);
+				todoTextWithCompletion = '( ) ' + todo.todoText;
 				}
+			todoItem.textContent = todoTextWithCompletion;
+			todoUL.appendChild(todoItem);
         }
     }
 };
