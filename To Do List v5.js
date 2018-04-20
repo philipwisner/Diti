@@ -1,4 +1,4 @@
-//TO DO LIST V4
+//TO DO LIST 54
 
 //Using an object, but adding a completed section to todos array
 
@@ -63,3 +63,12 @@ var todoList = {
 // Otherwise making everything true
 };
 
+
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    }
+}
