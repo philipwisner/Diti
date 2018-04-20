@@ -86,7 +86,9 @@ var view = {
 				} else {
 				todoTextWithCompletion = '( ) ' + todo.todoText;
 				}
+			todoItem.id = i;
 			todoItem.textContent = todoTextWithCompletion;
+			todoItem.appendChild(this.createDeleteButton());
 			todoUL.appendChild(todoItem);
         }
     },
@@ -94,5 +96,6 @@ var view = {
 		var deleteButton = document.createElement('button');
 		deleteButton.textContent = 'Delete';
 		deleteButton.className = 'deleteButton';
+		return deleteButton;
 	}
 };
