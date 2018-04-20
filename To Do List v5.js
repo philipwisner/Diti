@@ -101,7 +101,14 @@ var view = {
 		todoUL.innerHTML = '';
         for (var i = 0; i < todoList.todos.length; i++) {
             var todoItem = document.createElement('li');
-            todoUL.appendChild(todoItem);
+			var todoItemText = todoList.todos[i].todoText;
+			if (todoList.todos[i].completed === true) {
+				todoItem.textContent = '(x) ' + todoItemText;
+				todoUL.appendChild(todoItem);
+				} else {
+				todoItem.textContent = '( ) ' + todoItemText;
+				todoUL.appendChild(todoItem);
+				}
         }
     }
 };
