@@ -75,5 +75,10 @@ var handlers = {
         var newTodo = document.getElementById('addTodoTextInput')
         todoList.addTodo(newTodo.value);
         newTodo.value = "";
+    },
+    editTodo: function() {
+        var editedTodoPosition = document.getElementById('editTodoPositionInput');
+        var editedTodo = document.getElementById('editTodoTextInput');
+        todoList.editTodo(editedTodoPosition.value, editedTodo.value);
     }
 }
