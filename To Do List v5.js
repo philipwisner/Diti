@@ -56,10 +56,8 @@ var handlers = {
         editedTodo.value = '';
 		view.displayTodos();
     },
-    deleteTodo: function() {
-        var deleteTodoPosition = document.getElementById('deleteTodoPositionInput');
-        todoList.deleteTodo(deleteTodoPosition.valueAsNumber);
-        deleteTodoPosition.value = '';
+    deleteTodo: function(position) {
+        todoList.deleteTodo(position);
 		view.displayTodos();
     },
     toggleCompleted: function() {
@@ -99,3 +97,14 @@ var view = {
 		return deleteButton;
 	}
 };
+
+var todosUL = document.getElementById('todoList');
+todosUL.addEventListener('click', function(event) {	
+	var elementClicked = event.target;
+	if (elementClicked.className === 'deleteButton') {
+		var positionId = parseInt(elementClicked.parentNode.id);
+		handlers.deleteTodo(positionId);
+	}
+});
+
+//position is equal to the id of the element click
