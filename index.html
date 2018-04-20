@@ -10,8 +10,14 @@
     <section>
         <h1>Diti</h1>
         <p>A minimalist ToDo App</p>
-        <button id="displayTodosButton" onclick="handlers.displayTodos()">Display Todos</button>
-        <button onclick="handlers.toggleAll()">Toggle All</button>
+        <div>
+            <button id="displayTodosButton" onclick="handlers.displayTodos()">Display Todos</button>
+            <button onclick="handlers.toggleAll()">Toggle All</button>
+        </div>
+        <div>
+            <input type="text" placeholder="Add Todo" id="addTodoTextInput">
+            <button onclick="handlers.addTodo()">Add</button>
+        </div>
     </section>
 
 </body>

@@ -70,5 +70,8 @@ var handlers = {
     },
     toggleAll: function() {
         todoList.toggleAll();
+    },
+    addTodo: function() {
+        todoList.addTodo();
     }
 }
