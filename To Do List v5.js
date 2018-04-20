@@ -111,7 +111,21 @@ var view = {
 };
 
 
-view.setUpEventListeners();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+var todosUl = document.querySelector('ul');
+todosUl.addEventListener('click', function(event) {
+    var elementClicked = event.target;
+    if (elementClicked.className === 'deleteButton') {
+        var positionId = parseInt(elementClicked.parentNode.id);
+        handlers.deleteTodo(positionId);
+    }
+});
+});
+
+
+//view.setUpEventListeners();
 
 
 
