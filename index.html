@@ -19,9 +19,13 @@
             <button onclick="handlers.addTodo()">Add</button>
         </div>
         <div>
+            <input id="editTodoPositionInput" placeholder="Todo position" type="number">
+            <input id="editTodoTextInput" placeholder="New Text" type="text">
             <button onclick="handlers.editTodo()">Edit Todo</button>
-            <input id="editTodoPositionInput" type="number">
-            <input id="editTodoTextInput" type="text">
+        </div>
+        <div>
+            <input id='deleteTodoPositionInput' placeholder="Todo position" type="number">
+            <button onclick="handlers.deleteTodo()">Delete</button>
         </div>
     </section>
 
