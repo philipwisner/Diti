@@ -97,36 +97,22 @@ var view = {
 		return deleteButton;
 	},
 	setUpEventListeners: function() {
-		var todosUl = document.getElementById('todoList');
-		if (todosUl) {
-		todosUl.addEventListener('click', function(event) {	
-			var elementClicked = event.target;
-			if (elementClicked.className === 'deleteButton') {
-				var positionId = parseInt(elementClicked.parentNode.id);
-				handlers.deleteTodo(positionId);
-			}
-		})
-		}
+        document.addEventListener('DOMContentLoaded', function () {
+            var todosUl = document.querySelector('ul');
+            todosUl.addEventListener('click', function(event) {
+                var elementClicked = event.target;
+                if (elementClicked.className === 'deleteButton') {
+                    var positionId = parseInt(elementClicked.parentNode.id);
+                    handlers.deleteTodo(positionId);
+                }
+            });
+        });
 	}
 };
 
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-var todosUl = document.querySelector('ul');
-todosUl.addEventListener('click', function(event) {
-    var elementClicked = event.target;
-    if (elementClicked.className === 'deleteButton') {
-        var positionId = parseInt(elementClicked.parentNode.id);
-        handlers.deleteTodo(positionId);
-    }
-});
-});
-
-
-//view.setUpEventListeners();
+view.setUpEventListeners();
 
 
 
-//position is equal to the id of the element click
