@@ -26,17 +26,52 @@ header p {
 }
 
 .todoListContainer {
-	margin: 0 auto;
 	max-width: 1000px;
-/*	box-shadow: 1px 1px grey;*/
+	margin: 0 auto;
+	position: relative;
 }
 
 .todoListComponents {
 	margin: 50px 50px;
-	padding: 15px;
 	background-color: #fff;
 	box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
 }
+
+.todoHeader {
+	position: relative;
+	margin-bottom: 50px;
+	border-bottom: .5px solid #e0e0e0;
+	height: 50px;
+	padding-top: 15px;
+}
+
+.todoHeader button {
+	position: absolute;
+	left: 0;
+	border: none;
+	color: #828282;
+	margin-top: 5px;
+}
+
+.todoHeader h3 {
+	background-color: #fff;
+	display: inline-block;
+	position: absolute;
+	margin-top: 8px;
+	right: 40%;
+}
+
+.todoHeader p {
+	background-color: #fff;
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	color: #828282;
+	font-size: .8em;
+	margin-top: 10px;
+}
+
+
 
 div {
 		background-color: #fff;
@@ -48,4 +83,5 @@ button {
 	background: none;
 	background-color: #fff;
 	border: .5px solid black;
+	font-size: .8em;
 }
