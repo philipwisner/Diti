@@ -105,6 +105,14 @@ var view = {
                     handlers.deleteTodo(positionId);
                 }
             });
+						var todoInput = document.getElementById('addTodoTextInput');
+						todoInput.addEventListener("keyup", function(event) {
+							event.preventDefault();
+							if (event.keyCode === 13) {
+								handlers.addTodo();
+							}
+							})
+					
         });
 	}
 };
