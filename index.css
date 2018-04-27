@@ -72,7 +72,20 @@ header p {
 	margin-top: 10px;
 }
 
+ul {
+	list-style-type: none;
+	padding: 0;
+}
 
+li {
+	height: 45px;
+	border-bottom: .5px solid #e0e0e0;
+	background-color: #fff;
+}
+
+.deleteButton {
+	float: right;
+}
 
 div {
 		background-color: #fff;
