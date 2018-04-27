@@ -51,6 +51,7 @@ header p {
 	border: none;
 	color: #828282;
 	margin-top: 5px;
+	font-size: .9em;
 }
 
 .todoHeader h3 {
@@ -58,7 +59,7 @@ header p {
 	display: inline-block;
 	position: absolute;
 	margin-top: 8px;
-	right: 40%;
+	right: 42.5%;
 }
 
 .todoHeader p {
@@ -67,7 +68,7 @@ header p {
 	position: absolute;
 	right: 15px;
 	color: #828282;
-	font-size: .8em;
+	font-size: .9em;
 	margin-top: 10px;
 }
 
@@ -83,7 +84,7 @@ button {
 	background: none;
 	background-color: #fff;
 	border: .5px solid black;
-	font-size: .8em;
+	font-size: .9em;
 }
 
 .addTodo {
@@ -94,7 +95,8 @@ button {
 	background-color: white;
 	border: none;
 	padding: 10px 10px 10px 15px;
-	width: 88%;
+	width: 97%;
+	border-bottom: .5px solid #e0e0e0;
 }
 
 
