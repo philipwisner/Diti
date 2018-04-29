@@ -42,9 +42,11 @@ var todoList = {
 var handlers = {
     addTodo: function() {
         var newTodo = document.getElementById('addTodoTextInput')
-        todoList.addTodo(newTodo.value);
+        if (newTodo.value != "") {
+                    todoList.addTodo(newTodo.value);
         newTodo.value = "";
 		view.displayTodos();
+        }
     },
     editTodo: function() {
         var editedTodoPosition = document.getElementById('editTodoPositionInput');
