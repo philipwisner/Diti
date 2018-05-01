@@ -94,13 +94,13 @@ li {
 
 .deleteButton {
     float: right;
+    color: #828282;
 }
 
 
 div {
     background-color: #fff;
 }
-
 
 
 .addTodo {
