@@ -93,8 +93,11 @@ var view = {
     },
 	createDeleteButton: function() {
 		var deleteButton = document.createElement('button');
-		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'deleteButton';
+        deleteButton.className = 'deleteButton';
+        deleteButton.textContent = 'x';
+//        var deleteIcon = document.createElement('span');
+//		deleteIcon.className = "fa fa-trash";
+//        deleteButton.appendChild(deleteIcon);
 		return deleteButton;
 	},
 	setUpEventListeners: function() {
