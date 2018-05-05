@@ -78,6 +78,14 @@ var view = {
 		todoUL.innerHTML = '';
         todoList.todos.forEach(function(todo, position) {
             var todoItem = document.createElement('li');
+            
+            var incomplete = document.createElement('span');
+            incomplete.className = 'incomplete';
+            imcomplete.textContent = '( )';
+            var completed = document.createElement('span');
+            completed.className = 'completed';
+            completed.textContent = '(x)';
+            
             var todoTextWithCompletion = '';
             if (todo.completed === true) {
                 todoTextWithCompletion = '(x) ' + todo.todoText;
@@ -100,8 +108,14 @@ var view = {
 //        deleteButton.appendChild(deleteIcon);
 		return deleteButton;
 	},
+    createToggleComplete: function() {
+        var toggleComplete = document.createElement('button');
+        toggleComplete.className = 'toggleComplete';
+        toggleComplete.textContent = '( )';
+        return toggleComplete;
+    },
 	setUpEventListeners: function() {
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var todosUl = document.querySelector('ul');
             todosUl.addEventListener('click', function(event) {
                 var elementClicked = event.target;
@@ -110,14 +124,14 @@ var view = {
                     handlers.deleteTodo(positionId);
                 }
             });
-						var todoInput = document.getElementById('addTodoTextInput');
-						todoInput.addEventListener("keyup", function(event) {
-							event.preventDefault();
-							if (event.keyCode === 13) {
-								handlers.addTodo();
-							}
-							})
-					
+            
+            var todoInput = document.getElementById('addTodoTextInput');
+            todoInput.addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    handlers.addTodo();
+                }
+            })
         });
 	}
 };
