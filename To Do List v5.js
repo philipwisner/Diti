@@ -1,5 +1,14 @@
 //TO DO LIST V5
 
+
+/*
+1. Need to display delete button only when you hover over list item
+2. Have an actual button to toggle complete or incomplete for the todo items
+3. Create a clear all completed button on the button
+4. Link to database - to save name of list/date and todo list items
+*/
+
+
 var todoList = {
     todos: [],
     addTodo: function (todoText) {
@@ -37,7 +46,6 @@ var todoList = {
         });
     }
 };
-
 
 var handlers = {
     addTodo: function() {
@@ -78,14 +86,6 @@ var view = {
 		todoUL.innerHTML = '';
         todoList.todos.forEach(function(todo, position) {
             var todoItem = document.createElement('li');
-            
-            var incomplete = document.createElement('span');
-            incomplete.className = 'incomplete';
-            imcomplete.textContent = '( )';
-            var completed = document.createElement('span');
-            completed.className = 'completed';
-            completed.textContent = '(x)';
-            
             var todoTextWithCompletion = '';
             if (todo.completed === true) {
                 todoTextWithCompletion = '(x) ' + todo.todoText;
