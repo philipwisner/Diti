@@ -88,9 +88,9 @@ var view = {
             var todoItem = document.createElement('li');
             var todoTextWithCompletion = '';
             if (todo.completed === true) {
-                todoTextWithCompletion = this.createToggleComplete().textContent = '(x) ' + todo.todoText;
+                todoTextWithCompletion = todo.todoText;
             } else {
-                todoTextWithCompletion = this.createToggleComplete().textContent = '( ) ' + todo.todoText;
+                todoTextWithCompletion = todo.todoText;
             }
 			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
@@ -104,15 +104,22 @@ var view = {
 		var deleteButton = document.createElement('button');
         deleteButton.className = 'deleteButton';
         deleteButton.textContent = 'x';
-//        var deleteIcon = document.createElement('span');
+//      var deleteIcon = document.createElement('span');
 //		deleteIcon.className = "fa fa-trash";
-//        deleteButton.appendChild(deleteIcon);
+//      deleteButton.appendChild(deleteIcon);
 		return deleteButton;
 	},
     createToggleComplete: function() {
         var toggleComplete = document.createElement('button');
         toggleComplete.className = 'toggleComplete';
-        toggleComplete.textContent = '';
+        
+        todoList.todos.forEach(function(todo, position) {
+            if (todo.completed === true) {
+                toggleComplete.textContent = '(x)'
+            } else {
+                toggleComplete.textContent = '( )'
+            }
+        })
         return toggleComplete;
     },
 	setUpEventListeners: function() {
@@ -125,7 +132,13 @@ var view = {
                     handlers.deleteTodo(positionId);
                 }
             });
-            
+            todosUl.addEventListener('click', function(event) {
+                var elementClicked = event.target;
+                if (elementClicked.className === 'toggleComplete') {
+                    var positionId = parseInt(elementClicked.parentNode.id);
+                    handlers.toggleCompleted(positionId);
+                }
+            });
             var todoInput = document.getElementById('addTodoTextInput');
             todoInput.addEventListener("keyup", function(event) {
                 event.preventDefault();
