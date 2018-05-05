@@ -88,13 +88,14 @@ var view = {
             var todoItem = document.createElement('li');
             var todoTextWithCompletion = '';
             if (todo.completed === true) {
-                todoTextWithCompletion = '(x) ' + todo.todoText;
+                todoTextWithCompletion = this.createToggleComplete().textContent = '(x) ' + todo.todoText;
             } else {
-                todoTextWithCompletion = '( ) ' + todo.todoText;
+                todoTextWithCompletion = this.createToggleComplete().textContent = '( ) ' + todo.todoText;
             }
 			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
 			todoItem.appendChild(this.createDeleteButton());
+            todoItem.appendChild(this.createToggleComplete());
 			todoUL.appendChild(todoItem);
         }, this);
     // To refactor the display todos everything stays the same but inorder to give the li items an id, we have to pass the position argument in the callback. Then the this.createDeleteButton() function does not work because 'this' is now refering to the forEach, not the view object. So we pass this as another argument in the forEach, outside the callback.
@@ -111,7 +112,7 @@ var view = {
     createToggleComplete: function() {
         var toggleComplete = document.createElement('button');
         toggleComplete.className = 'toggleComplete';
-        toggleComplete.textContent = '( )';
+        toggleComplete.textContent = '';
         return toggleComplete;
     },
 	setUpEventListeners: function() {
