@@ -68,10 +68,12 @@ var handlers = {
         todoList.deleteTodo(position);
 		view.displayTodos();
     },
-    toggleCompleted: function() {
-        var completedTodoPosition = document.getElementById('toggleTodoPositionInput');		todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
-        completedTodoPosition.value = '';
-		view.displayTodos();
+    toggleCompleted: function(position) {
+        todoList.toggleCompleted(position);
+        view.displayTodos();
+        
+//        var completedTodoPosition = document.getElementById('toggleTodoPositionInput');		todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
+//        completedTodoPosition.value = '';
     },
 	toggleAll: function() {
 		todoList.toggleAll();
@@ -112,7 +114,6 @@ var view = {
     createToggleComplete: function() {
         var toggleComplete = document.createElement('button');
         toggleComplete.className = 'toggleComplete';
-        
         todoList.todos.forEach(function(todo, position) {
             if (todo.completed === true) {
                 toggleComplete.textContent = '(x)'
@@ -131,13 +132,11 @@ var view = {
                     var positionId = parseInt(elementClicked.parentNode.id);
                     handlers.deleteTodo(positionId);
                 }
-            });
-            todosUl.addEventListener('click', function(event) {
-                var elementClicked = event.target;
                 if (elementClicked.className === 'toggleComplete') {
                     var positionId = parseInt(elementClicked.parentNode.id);
                     handlers.toggleCompleted(positionId);
                 }
+                
             });
             var todoInput = document.getElementById('addTodoTextInput');
             todoInput.addEventListener("keyup", function(event) {
