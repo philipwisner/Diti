@@ -1,6 +1,6 @@
 # Diti
 
-![Diti Logo](https://philipwisner.github.io/Diti/checkmark-outline-circle.svg)
+![Diti Logo](http://philipwisner.com/images/Diti.svg)
 
 A VanillaJS To Do App
 
