@@ -133,6 +133,7 @@ var view = {
                     handlers.deleteTodo(positionId);
                 }
                 if (elementClicked.className === 'toggleComplete') {
+                    console.log('toggle Clicked')
                     var positionId = parseInt(elementClicked.parentNode.id);
                     handlers.toggleCompleted(positionId);
                 }
