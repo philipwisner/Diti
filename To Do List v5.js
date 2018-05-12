@@ -1,6 +1,5 @@
 //TO DO LIST V5
 
-
 /*
 1. Need to display delete button only when you hover over list item
 2. Have an actual button to toggle complete or incomplete for the todo items
@@ -85,14 +84,14 @@ var handlers = {
 var view = {
     displayTodos: function() {
 		var todoUL = document.getElementById('todoList');
-		todoUL.innerHTML = '';
+        todoUL.innerHTML = '';
         todoList.todos.forEach(function(todo, position) {
             var todoItem = document.createElement('li');
             var todoTextWithCompletion = '';
-            if (todo.completed === true) {
-                todoTextWithCompletion = todo.todoText;
+            if (todo.completed) {
+                todoTextWithCompletion = '(x) ' + todo.todoText;
             } else {
-                todoTextWithCompletion = todo.todoText;
+                todoTextWithCompletion = '() ' + todo.todoText;
             }
 			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
@@ -114,8 +113,8 @@ var view = {
     createToggleComplete: function() {
         var toggleComplete = document.createElement('button');
         toggleComplete.className = 'toggleComplete';
-        todoList.todos.forEach(function(todo, position) {
-            if (todo.completed === true) {
+        todoList.todos.forEach(function(todo, position) {            
+            if (todo.completed) {
                 toggleComplete.textContent = '(x)'
             } else {
                 toggleComplete.textContent = '( )'
@@ -133,11 +132,10 @@ var view = {
                     handlers.deleteTodo(positionId);
                 }
                 if (elementClicked.className === 'toggleComplete') {
-                    console.log('toggle Clicked')
                     var positionId = parseInt(elementClicked.parentNode.id);
                     handlers.toggleCompleted(positionId);
                 }
-                
+
             });
             var todoInput = document.getElementById('addTodoTextInput');
             todoInput.addEventListener("keyup", function(event) {
