@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    
     <section>
         <header>
             <h1><img src="checkmark-outline-circle.svg" alt="">Diti</h1>
@@ -51,7 +52,18 @@
             </div>
         </section>
     </section>
-
 </body>
-
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDC8htVe9BvlnGEv7_1q2flcuebcEkXTkA",
+            authDomain: "diti-todo.firebaseapp.com",
+            databaseURL: "https://diti-todo.firebaseio.com",
+            projectId: "diti-todo",
+            storageBucket: "",
+            messagingSenderId: "388715940983"
+        };
+        firebase.initializeApp(config);
+    </script>
 </html>
