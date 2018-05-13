@@ -2,9 +2,10 @@
 
 /*
 1. Need to display delete button only when you hover over list item
-2. Have an actual button to toggle complete or incomplete for the todo items
-3. Create a clear all completed button on the button
-4. Link to database - to save name of list/date and todo list items
+2. Have a check mark or blank circle for toggle completed
+3. Add completedClass to completed items (italics/strike)
+4. Create a clear all completed button on the button
+5. Link to database - to save name of list/date and todo list items
 */
 
 
@@ -90,6 +91,7 @@ var view = {
             var todoTextWithCompletion = '';
             if (todo.completed) {
                 todoTextWithCompletion = '(x) ' + todo.todoText;
+                todoItem.className = "completedText";
             } else {
                 todoTextWithCompletion = '( ) ' + todo.todoText;
             }
