@@ -135,6 +135,12 @@ button:focus {
     border-bottom: .5px solid #e0e0e0;
 }
 
+#clearAllBtn {
+    color: black;
+    background: #ebebeb;
+    width: 100%;
+    padding: 10px;
+}
 
 /*LOADING ANIMATION*/
 

@@ -1,11 +1,10 @@
 //TO DO LIST V5
 
 /*
-1. Need to display delete button only when you hover over list item
-2. Have a check mark or blank circle for toggle completed
-3. Add completedClass to completed items (italics/strike)
-4. Create a clear all completed button on the button
-5. Link to database - to save name of list/date and todo list items
+* Need to display delete button only when you hover over list item
+* Have a check mark or blank circle for toggle completed
+* Create a clear all completed button on the button
+* Link to database - to save name of list/date and todo list items
 */
 
 
@@ -44,6 +43,15 @@ var todoList = {
                 todo.completed = true;
             }
         });
+    },
+    clearAllCompleted: function (position) {
+        var completedItems = 0;
+        this.todos.forEach(function(todo) {
+            if (todo.completed) {
+               completedItems++;
+            } 
+        });
+        console.log('there are ' + completedItems + ' completed items');
     }
 };
 
@@ -53,6 +61,14 @@ var handlers = {
         if (newTodo.value != "") {
                     todoList.addTodo(newTodo.value);
         newTodo.value = "";
+
+        var clearAllBtn = document.getElementById('clearAllBtn');
+        if (todoList.todos.length == 0) {
+            clearAllBtn.style.display = "none";
+        } else {
+            clearAllBtn.style.display = "block";
+        }
+
 		view.displayTodos();
         }
     },
@@ -78,6 +94,10 @@ var handlers = {
 	toggleAll: function() {
 		todoList.toggleAll();
 		view.displayTodos();
+    },
+    clearAllCompleted: function(position) {
+        todoList.clearAllCompleted();
+        view.displayTodos();
     }
 };
 
@@ -145,7 +165,11 @@ var view = {
                 if (event.keyCode === 13) {
                     handlers.addTodo();
                 }
-            })
+            });
+            var clearAllBtn = document.getElementById('clearAllBtn');
+            if (todoList.todos.length == 0) {                
+                clearAllBtn.style.display = "none";
+            } 
         });
 	}
 };
