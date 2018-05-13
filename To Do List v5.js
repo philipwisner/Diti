@@ -3,7 +3,7 @@
 /*
 * Need to display delete button only when you hover over list item
 * Have a check mark or blank circle for toggle completed
-* Create a clear all completed button on the button
+* Clear all completed button functionality 
 * Link to database - to save name of list/date and todo list items
 */
 
