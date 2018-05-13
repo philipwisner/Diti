@@ -91,7 +91,7 @@ var view = {
             if (todo.completed) {
                 todoTextWithCompletion = '(x) ' + todo.todoText;
             } else {
-                todoTextWithCompletion = '() ' + todo.todoText;
+                todoTextWithCompletion = '( ) ' + todo.todoText;
             }
 			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
@@ -115,9 +115,9 @@ var view = {
         toggleComplete.className = 'toggleComplete';
         todoList.todos.forEach(function(todo, position) {            
             if (todo.completed) {
-                toggleComplete.textContent = '(x)'
+                toggleComplete.textContent = ''
             } else {
-                toggleComplete.textContent = '( )'
+                toggleComplete.textContent = ''
             }
         })
         return toggleComplete;

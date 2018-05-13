@@ -107,6 +107,22 @@ div {
     margin-top: -50px;
 }
 
+.completedText {
+    text-decoration: line-through;
+    color: grey;
+    font-style: italic; 
+}
+
+.toggleComplete {
+    color: grey;
+    width: 30px;
+    height: 30px;;
+    position: absolute;
+    left: 60px;
+    margin=right: 100px;;
+    ;
+}
+
 #addTodoTextInput {
     background-color: white;
     border: none;
