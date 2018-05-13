@@ -44,14 +44,19 @@ var todoList = {
             }
         });
     },
-    clearAllCompleted: function (position) {
-        var completedItems = 0;
-        this.todos.forEach(function(todo) {
-            if (todo.completed) {
-               completedItems++;
-            } 
-        });
-        console.log('there are ' + completedItems + ' completed items');
+    clearAllCompleted: function () {
+        var incompleteList = this.todos.filter(todo => !todo.completed);
+        this.todos = incompleteList;
+        return incompleteList;
+
+        // var completedItems = 0;
+    //     this.todos.forEach(function(todo) {
+    //         if (todo.completed) {
+    //            completedItems++;
+    //         } 
+    //     });
+    //     console.log('there are ' + completedItems + ' completed items');
+    // }
     }
 };
 
