@@ -119,8 +119,10 @@ div {
     height: 30px;;
     position: absolute;
     left: 60px;
-    margin=right: 100px;;
-    ;
+}
+
+button:focus {
+    outline: 0;
 }
 
 #addTodoTextInput {
