@@ -3,7 +3,6 @@
 /*
 * Need to display delete button only when you hover over list item
 * Have a check mark or blank circle for toggle completed
-* Clear all completed button functionality 
 * Link to database - to save name of list/date and todo list items
 */
 
@@ -48,15 +47,6 @@ var todoList = {
         var incompleteList = this.todos.filter(todo => !todo.completed);
         this.todos = incompleteList;
         return incompleteList;
-
-        // var completedItems = 0;
-    //     this.todos.forEach(function(todo) {
-    //         if (todo.completed) {
-    //            completedItems++;
-    //         } 
-    //     });
-    //     console.log('there are ' + completedItems + ' completed items');
-    // }
     }
 };
 
