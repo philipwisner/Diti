@@ -10,9 +10,8 @@ Still a Work in Progress...
 I created Diti to practice making a simple app using only pure Vanilla JavaScript, no frameworks or libraries.
 
 ## Todo
-* Toggle individual task to complete or incomplete
+* Change completed toggle to circle and circle with checkmark
 * Delete button only show on hover
-* Clear All completed tasks button
 * Clean up styling (Make responsive)
 * Link to firebase database to save todos
 * Allow account creation
