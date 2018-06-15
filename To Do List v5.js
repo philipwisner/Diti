@@ -28,13 +28,13 @@ var todoList = {
     toggleAll: function () {
         var totalTodos = this.todos.length;
         var completedTodos = 0;
-        
+
         this.todos.forEach(function(todo) {
             if (todo.completed) {
                 completedTodos++;
             }
         });
-        
+
         this.todos.forEach(function(todo) {
             if (completedTodos === totalTodos) {
                 todo.completed = false;
@@ -82,7 +82,7 @@ var handlers = {
     toggleCompleted: function(position) {
         todoList.toggleCompleted(position);
         view.displayTodos();
-        
+
 //        var completedTodoPosition = document.getElementById('toggleTodoPositionInput');		todoList.toggleCompleted(completedTodoPosition.valueAsNumber);
 //        completedTodoPosition.value = '';
     },
@@ -105,10 +105,12 @@ var view = {
             var todoItem = document.createElement('li');
             var todoTextWithCompletion = '';
             if (todo.completed) {
-                todoTextWithCompletion = '(x) ' + todo.todoText;
+                var completeButton = '(x) ';
+                todoTextWithCompletion = completeButton + todo.todoText;
                 todoItem.className = "completedText";
             } else {
-                todoTextWithCompletion = '( ) ' + todo.todoText;
+                var incompleteButton = '( ) ';
+                todoTextWithCompletion = incompleteButton + todo.todoText;
             }
 			todoItem.id = position;
 			todoItem.textContent = todoTextWithCompletion;
@@ -130,7 +132,7 @@ var view = {
     createToggleComplete: function() {
         var toggleComplete = document.createElement('button');
         toggleComplete.className = 'toggleComplete';
-        todoList.todos.forEach(function(todo, position) {            
+        todoList.todos.forEach(function(todo, position) {
             if (todo.completed) {
                 toggleComplete.textContent = ''
             } else {
@@ -162,9 +164,9 @@ var view = {
                 }
             });
             var clearAllBtn = document.getElementById('clearAllBtn');
-            if (todoList.todos.length == 0) {                
+            if (todoList.todos.length == 0) {
                 clearAllBtn.style.display = "none";
-            } 
+            }
         });
 	}
 };
