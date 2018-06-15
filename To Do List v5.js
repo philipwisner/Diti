@@ -106,6 +106,8 @@ var view = {
             var todoTextWithCompletion = '';
             if (todo.completed) {
                 var completeButton = '(x) ';
+                var completeButtonImage = document.createElement('button');
+                completeButtonImage.className
                 todoTextWithCompletion = completeButton + todo.todoText;
                 todoItem.className = "completedText";
             } else {

@@ -110,7 +110,7 @@ div {
 .completedText {
     text-decoration: line-through;
     color: grey;
-    font-style: italic; 
+    font-style: italic;
 }
 
 .toggleComplete {
@@ -140,6 +140,14 @@ button:focus {
     background: #ebebeb;
     width: 100%;
     padding: 10px;
+}
+
+.completed {
+    color: red;
+}
+
+.incomplete {
+    color: blue;
 }
 
 /*LOADING ANIMATION*/
